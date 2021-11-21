@@ -15,6 +15,7 @@ func main() {
 
 	router.Get("/path", handler.Res)
 
-	err := http.ListenAndServe(":8000", router)
+	log.Print("Starting Server")
+	err := http.ListenAndServe(":8080", router)
 	log.Fatal(err)
 }
