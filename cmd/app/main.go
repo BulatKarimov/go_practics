@@ -25,7 +25,7 @@ func main() {
 	router.Get("/path", handler.Res)
 
 	log.Print("Starting Server on host: " + server_config.Host + " with port " + server_config.Port)
-	listener_err := http.ListenAndServe(":" + server_config.Port, router)
+	listener_err := http.ListenAndServe(server_config.Host + ":" + server_config.Port, router)
 
 	if listener_err != nil {
 		log.Fatal(listener_err)
