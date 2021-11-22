@@ -15,10 +15,10 @@ jobs:
         uses: golangci/golangci-lint-action@v2.3.0
 
   deploy:
-    name: deploy on Keroku
+    name: deploy on Heroku
     runs-on: ubuntu-latest
     needs:
-      - lint
+      - lintS
     steps:
       - uses: actions/checkout@v2
       - name: Login to Heroku Container registry
@@ -26,6 +26,6 @@ jobs:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: heroku container:login
       - name: BUild and Push
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        env:S
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}S
         run: heroku container:push -a ${{ secrets.HEROKU_APP_NAME }} web
